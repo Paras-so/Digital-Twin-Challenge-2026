@@ -129,4 +129,3 @@ Original project code, documentation, synthetic datasets and fitted artifacts ar
 The complete project is in the required team/college folder. Before running the commands above, use:
 
     cd jagjeet.work.16_National_Institute_of_Technology_Agartala
-

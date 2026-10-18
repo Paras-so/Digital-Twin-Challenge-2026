@@ -163,5 +163,5 @@ with (OUT/'wearables.csv').open('w',newline='') as f:
     writer=csv.writer(f);writer.writerow(['patient_id','tick_5min','glucose','sleep','steps_5min','hrv','heart_rate'])
     for pid,z in streams.items():
         for i,row in enumerate(z):writer.writerow([profiles[pid]['id'],i,*row])
-audit={f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in [DIST/'trained-model.json',DIST/'benchmark.json',OUT/'ehr.csv',OUT/'wearables.csv',OUT/'heldout-predictions.csv']}
+audit={f.name:hashlib.sha256(f.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for f in [DIST/'trained-model.json',DIST/'benchmark.json',OUT/'ehr.csv',OUT/'wearables.csv',OUT/'heldout-predictions.csv']}
 (OUT/'sha256.json').write_text(json.dumps(audit,indent=2));print(json.dumps({'selected':best,'test':scores[best],'interval':report['interval'],'cv':cv},indent=2),flush=True)

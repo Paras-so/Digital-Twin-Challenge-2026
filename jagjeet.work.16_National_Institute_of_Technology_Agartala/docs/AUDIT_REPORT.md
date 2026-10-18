@@ -33,6 +33,7 @@ The technical PoC and required written/PDF documentation are prepared. The minim
 - Expand automated browser/Python comparison from three demo patients to all 12 test patients.
 - Add license, data provenance, submission checklist, project presentation, architecture diagram and recording guide.
 - Add a submission validator that intentionally reports the missing video instead of returning a false readiness result.
+- Normalize CRLF to LF for text-content hashes, so Git checkout line-ending conversion does not cause false integrity failures on Linux. This was found by the first GitHub Actions run; numerical inference passed there.
 
 ## Remaining limitations
 

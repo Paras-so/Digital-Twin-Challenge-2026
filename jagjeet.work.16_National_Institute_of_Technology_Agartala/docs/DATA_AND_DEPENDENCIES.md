@@ -7,3 +7,5 @@ The generator creates fictional demographics, diagnosis duration, HbA1c, BMI and
 Original source, generated data, fitted JSON and documentation are covered by the project's MIT license. Python, Node.js, NumPy, scikit-learn and runtime dependencies retain upstream licenses and are not redistributed here. PDFs embed subsets of an installed font; no font installation files are distributed.
 
 The optional Google Fonts stylesheet is fetched when online. Local fallback fonts support the dashboard if unavailable. The application does not send health records to that service and does not connect to EHR or wearable accounts.
+
+research/sha256.json hashes text content after replacing CRLF with LF. This deliberately ignores platform newline conversion while preserving detection of data-content changes.

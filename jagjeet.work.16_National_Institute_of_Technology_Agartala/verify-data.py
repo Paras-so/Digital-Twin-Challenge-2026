@@ -31,7 +31,7 @@ def main():
     hashes=json.loads((ROOT/'research/sha256.json').read_text())
     for filename,expected in hashes.items():
         path=(ROOT/'dist'/filename) if filename in ['trained-model.json','benchmark.json'] else (ROOT/'research'/filename)
-        assert hashlib.sha256(path.read_bytes()).hexdigest()==expected,filename
+        assert hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n')).hexdigest()==expected,filename
     assert sum(v['patients'] for v in r['split'].values())==90
     assert len(r['features'])==18 and r['horizon_minutes']==120
     print(f'PASS: 90 EHR records, 207360 ordered wearable events, {n} actual future labels, all event counts and hashes.')

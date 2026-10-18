@@ -4,16 +4,16 @@ permissions:
   contents: read
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: jagjeet.work.16_National_Institute_of_Technology_Agartala
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '24'
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.13'
       - run: node --check dist/app.js
@@ -21,4 +21,3 @@ jobs:
       - run: node check-model.cjs
       - run: python verify-data.py
       - run: python -m py_compile train.py
-
