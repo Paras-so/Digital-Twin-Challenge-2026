@@ -1,0 +1,20 @@
+{
+  "team_name": "jagjeet.work.16",
+  "college_or_incubator": "National Institute of Technology Agartala",
+  "team_members": [
+    {
+      "name": "Jagjeet Singh",
+      "role": "Team leader"
+    },
+    {
+      "name": "Shivay Saurya",
+      "role": "Team member"
+    }
+  ],
+  "team_leader_name": "Jagjeet Singh",
+  "public_github_repository": "https://github.com/Paras-so/Digital-Twin-Challenge-2026",
+  "demo_video_url": null,
+  "demo_video_duration_seconds": null,
+  "demo_video_access_verified": false,
+  "submission_platform_submitted": false
+}

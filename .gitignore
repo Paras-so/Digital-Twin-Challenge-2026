@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+work/
+.env
+.env.*
+!.env.example
+*.log
+submission-contact.local.json

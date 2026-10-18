@@ -1,0 +1,331 @@
+{
+  "seed": 20261018,
+  "synthetic": true,
+  "sklearn": "1.9.0",
+  "numpy": "2.3.2",
+  "python": "3.13.6",
+  "selected": "Random forest fusion",
+  "selection_rule": "Lowest validation MAE; no test-set selection",
+  "event_selected": "Random forest spike classifier",
+  "event_selection": {
+    "model": "Random forest spike classifier",
+    "cutoff": 0.44999999999999996,
+    "f2": 0.6692591076545232,
+    "precision": 0.3159420289855073,
+    "recall": 0.9289772727272727
+  },
+  "event_benchmarks": {
+    "Logistic spike classifier": {
+      "precision": 0.32083333333333336,
+      "recall": 0.7804054054054054,
+      "f1": 0.4547244094488189,
+      "tp": 231,
+      "fp": 489,
+      "fn": 65,
+      "tn": 3341,
+      "auroc": 0.9223863876931763,
+      "average_precision": 0.5200774113795307,
+      "validation_f2": 0.5988023952095808,
+      "raw_cutoff": 0.47499999999999987
+    },
+    "Random forest spike classifier": {
+      "precision": 0.35343383584589616,
+      "recall": 0.7128378378378378,
+      "f1": 0.47256438969764836,
+      "tp": 211,
+      "fp": 386,
+      "fn": 85,
+      "tn": 3444,
+      "auroc": 0.912156869663397,
+      "average_precision": 0.46619815733153463,
+      "validation_f2": 0.6692591076545232,
+      "raw_cutoff": 0.44999999999999996,
+      "brier": 0.05476999787049783
+    }
+  },
+  "event_probability_cutoff": 0.024735702475430468,
+  "features": [
+    "age",
+    "bmi",
+    "hba1c",
+    "diagnosis_years",
+    "genetic_risk_marker",
+    "glucose_now",
+    "glucose_15m",
+    "glucose_30m",
+    "glucose_60m",
+    "glucose_mean_60m",
+    "glucose_std_60m",
+    "slope_30m",
+    "sleep_hours",
+    "steps_last_hour",
+    "hrv_ms",
+    "heart_rate",
+    "hour_sin",
+    "hour_cos"
+  ],
+  "horizon_minutes": 120,
+  "event": "Current glucose <=180 and observed glucose >180 mg/dL exactly 120 minutes later",
+  "split": {
+    "train": {
+      "patients": 54,
+      "windows": 19872
+    },
+    "validation": {
+      "patients": 12,
+      "windows": 4416
+    },
+    "calibration": {
+      "patients": 12,
+      "windows": 4416
+    },
+    "test": {
+      "patients": 12,
+      "windows": 4416
+    }
+  },
+  "validation": [
+    {
+      "model": "Ridge fusion",
+      "mae": 16.10692181464123
+    },
+    {
+      "model": "Random forest fusion",
+      "mae": 9.834257650190446
+    },
+    {
+      "model": "Gradient boosting fusion",
+      "mae": 10.784204351722428
+    }
+  ],
+  "benchmarks": {
+    "Ridge fusion": {
+      "mae": 14.375977014941114,
+      "rmse": 18.71979858533195,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 296,
+      "tn": 3829,
+      "n": 4416,
+      "eligible": 4126,
+      "prevalence": 0.07174018419777024
+    },
+    "Random forest fusion": {
+      "mae": 10.042687306231636,
+      "rmse": 14.029599154734314,
+      "precision": 0.7878787878787878,
+      "recall": 0.2635135135135135,
+      "f1": 0.3949367088607595,
+      "tp": 78,
+      "fp": 21,
+      "fn": 218,
+      "tn": 3809,
+      "n": 4416,
+      "eligible": 4126,
+      "prevalence": 0.07174018419777024,
+      "auroc": 0.9498390198292287,
+      "average_precision": 0.5868787175867671,
+      "brier": 0.04758267794587475
+    },
+    "Gradient boosting fusion": {
+      "mae": 10.341028866823967,
+      "rmse": 14.166048974748717,
+      "precision": 0.7857142857142857,
+      "recall": 0.037162162162162164,
+      "f1": 0.07096774193548387,
+      "tp": 11,
+      "fp": 3,
+      "fn": 285,
+      "tn": 3827,
+      "n": 4416,
+      "eligible": 4126,
+      "prevalence": 0.07174018419777024
+    },
+    "Persistence (last glucose)": {
+      "mae": 25.574637681159423,
+      "rmse": 32.905275623502924,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 296,
+      "tn": 3830,
+      "n": 4416,
+      "eligible": 4126,
+      "prevalence": 0.07174018419777024
+    },
+    "Linear trend (30-minute slope)": {
+      "mae": 45.879898097826086,
+      "rmse": 61.846071121061634,
+      "precision": 0.045283018867924525,
+      "recall": 0.08108108108108109,
+      "f1": 0.05811138014527845,
+      "tp": 24,
+      "fp": 506,
+      "fn": 272,
+      "tn": 3324,
+      "n": 4416,
+      "eligible": 4126,
+      "prevalence": 0.07174018419777024
+    }
+  },
+  "ablations": {
+    "EHR only": {
+      "mae": 19.251393260009905,
+      "rmse": 23.643830053810934,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 296,
+      "tn": 3830,
+      "n": 4416,
+      "eligible": 4126,
+      "prevalence": 0.07174018419777024
+    },
+    "Wearables only": {
+      "mae": 10.249601771526452,
+      "rmse": 14.006629847249734,
+      "precision": 0.5966386554621849,
+      "recall": 0.23986486486486486,
+      "f1": 0.3421686746987952,
+      "tp": 71,
+      "fp": 48,
+      "fn": 225,
+      "tn": 3782,
+      "n": 4416,
+      "eligible": 4126,
+      "prevalence": 0.07174018419777024
+    }
+  },
+  "grouped_cv_mae": [
+    9.230288891473363,
+    10.27964347257296,
+    9.675906761585534
+  ],
+  "temporal": {
+    "mae": 8.811169271934062,
+    "rmse": 12.775777527272977,
+    "precision": 0.7540106951871658,
+    "recall": 0.4325153374233129,
+    "f1": 0.5497076023391813,
+    "tp": 141,
+    "fp": 46,
+    "fn": 185,
+    "tn": 4277,
+    "n": 4968,
+    "eligible": 4649,
+    "prevalence": 0.0701226070122607
+  },
+  "stress": {
+    "30-minute CGM gap": {
+      "mae": 10.571707903734197,
+      "rmse": 14.55424599010175,
+      "precision": 0.6666666666666666,
+      "recall": 0.28378378378378377,
+      "f1": 0.3981042654028436,
+      "tp": 84,
+      "fp": 42,
+      "fn": 212,
+      "tn": 3788,
+      "n": 4416,
+      "eligible": 4126,
+      "prevalence": 0.07174018419777024
+    },
+    "CGM noise (SD 10 mg/dL)": {
+      "mae": 11.180486962478703,
+      "rmse": 15.756019000070063,
+      "precision": 0.7272727272727273,
+      "recall": 0.10810810810810811,
+      "f1": 0.18823529411764706,
+      "tp": 32,
+      "fp": 12,
+      "fn": 264,
+      "tn": 3818,
+      "n": 4416,
+      "eligible": 4126,
+      "prevalence": 0.07174018419777024
+    }
+  },
+  "subgroups": {
+    "Female": {
+      "mae": 9.018799648915552,
+      "rmse": 12.776384014121927,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 104,
+      "tn": 2002,
+      "n": 2208,
+      "eligible": 2106,
+      "prevalence": 0.04938271604938271
+    },
+    "Male": {
+      "mae": 11.06657496354772,
+      "rmse": 15.179700801028105,
+      "precision": 0.7878787878787878,
+      "recall": 0.40625,
+      "f1": 0.5360824742268041,
+      "tp": 78,
+      "fp": 21,
+      "fn": 114,
+      "tn": 1807,
+      "n": 2208,
+      "eligible": 2020,
+      "prevalence": 0.09504950495049505
+    },
+    "Age <50": {
+      "mae": 10.21695122013698,
+      "rmse": 13.859773945623484,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 40,
+      "tn": 1760,
+      "n": 1840,
+      "eligible": 1800,
+      "prevalence": 0.022222222222222223
+    },
+    "Age \u226550": {
+      "mae": 9.918213082013532,
+      "rmse": 14.149655019476336,
+      "precision": 0.7878787878787878,
+      "recall": 0.3046875,
+      "f1": 0.4394366197183099,
+      "tp": 78,
+      "fp": 21,
+      "fn": 178,
+      "tn": 2049,
+      "n": 2576,
+      "eligible": 2326,
+      "prevalence": 0.11006018916595013
+    }
+  },
+  "interval": {
+    "nominal": 0.9,
+    "half_width": 23.342192546124068,
+    "test_coverage": 0.8965126811594203,
+    "calibration_patients": 12,
+    "method": "Absolute residual quantile on separate calibration patients; dependent windows, no formal iid coverage guarantee"
+  },
+  "mae_patient_bootstrap_95": [
+    9.151643788171262,
+    10.923412187899293
+  ],
+  "limitations": [
+    "Synthetic physiology is not clinically validated.",
+    "Unobserved future meals and activity limit predictability.",
+    "Overlapping windows are dependent; confidence interval resamples patients.",
+    "Hypothetical genetic marker, not a real genotype association.",
+    "Event is +120-minute endpoint elevation, not any crossing within two hours."
+  ]
+}
