@@ -21,7 +21,9 @@ Leader contact details are supplied separately for the submission platform and a
 
 **VIDEO LINK: PENDING - to be added by the team.**
 
-The video must explain and demonstrate the prototype for **at least 20 minutes**. No video has been recorded or verified in this package. Use the [22-minute recording guide](jagjeet.work.16_National_Institute_of_Technology_Agartala/docs/VIDEO_RECORDING_GUIDE.md), then replace this pending entry with the accessible video link and update [submission metadata](jagjeet.work.16_National_Institute_of_Technology_Agartala/submission.json). The presentation PDF does not replace the required video.
+The video must explain and demonstrate the prototype for **at least 20 minutes**. No video has been recorded or verified in this package. Use the latest [20-minute app walkthrough script](video%20script/twinlab-app-walkthrough-20-min.pdf), then replace this pending entry with the accessible video link and update [submission metadata](jagjeet.work.16_National_Institute_of_Technology_Agartala/submission.json). The presentation PDF does not replace the required video.
+
+The [video script folder](video%20script/README.md) contains the latest editable [presentation PPTX](video%20script/twinlab-presentation-mapped.pptx), the printable script and its editable text copy.
 
 ## Problem statement and healthcare use case
 
